@@ -1,24 +1,19 @@
 # Umbrella reminder program
-# project picked from chapter 16 of Automate the Boring Stuff with Python
 
-# THINGS YOU MAY WANT TO CHANGE AFTER YOU HAVE THIS PROGRAM:
-# line 22: the URL should be the 7-day forecast page for your own location
-# line 68: my_number should be the phone number at which you'd like to receive texts
+# line 22: the URL should be the 7-day forecast page 
+# line 68: my_number is the phone number where i'd like to receive texts
 
 import re
 
-# THE BELOW MODULES DO NOT COME WITH PYTHON; YOU NEED TO INSTALL THEM
-# try typing these into the terminal/command line:
+
 # pip install requests
 # pip install beautifulsoup4
-# pip install twilio
+
 import requests, bs4
 from twilio.rest import Client
-# Requests: downloads stuff from Internet
-# Beautiful Soup: parses HTML
-# Twilio: text message capability
 
-# get page; CURRENTLY SET FOR WASHINGTON, DC
+# Beautiful Soup: parses HTML
+
 page = requests.get("https://forecast.weather.gov/MapClick.php?textField1=38.89&textField2=-77.03")
 page.raise_for_status()
 page_soup = bs4.BeautifulSoup(page.text, "html.parser")
